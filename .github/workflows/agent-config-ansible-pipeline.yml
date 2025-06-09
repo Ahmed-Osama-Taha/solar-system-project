@@ -15,11 +15,6 @@ jobs:
               uses: actions/checkout@v2
             
             - name: run ansible-playbook
-              uses: dawidd6/action-ansible-playbook@v2
-              with:
-                playbook: infra/ansible/config.yml
-                inventory: infra/ansible/inventory.ini
-                directory: .
-                options: -b
-                
+              run: |
+                ansible-playbook -i infra/ansible/inventory.ini infra/ansible/config.yml 
 
