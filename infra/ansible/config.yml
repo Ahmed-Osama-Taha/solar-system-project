@@ -1,6 +1,6 @@
 ---
 - name: Bootstrap Ubuntu_Agent for CI/CD Solar System nodejs App
-  hosts: GitHubActionsAgent
+  hosts: Agent
   become: yes
 
   vars:
