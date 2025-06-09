@@ -1,0 +1,26 @@
+
+name: Pushing Configuration to self-hosted agent Ansible Pipeline
+
+on:
+    push: 
+        branches:
+            - main
+        paths:
+             - infra/ansible/
+
+jobs:
+    push-ansible-config:
+        runs-on: self-hosted
+        steps:
+            - name: Copying files
+              uses: actions/checkout@v2
+            
+            - name: run ansible-playbook
+              uses: dawidd6/action-ansible-playbook@v2
+              with:
+                playbook: infra/ansible/config.yml
+                inventory: infra/ansible/inventory.ini
+              
+              
+
+              
