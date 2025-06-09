@@ -19,5 +19,7 @@ jobs:
               with:
                 playbook: infra/ansible/config.yml
                 inventory: infra/ansible/inventory.ini
+                directory: .
+                options: -b
                 
 
