@@ -56,11 +56,14 @@
 
     - name: Install kubectl (stable version)
       shell: |
-        curl -s -o kubectl "https://dl.k8s.io/release/$(curl -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        set -e
+        VERSION=$(curl -s https://dl.k8s.io/release/stable.txt)
+        curl -LO "https://dl.k8s.io/release/${VERSION}/bin/linux/amd64/kubectl"
         chmod +x kubectl
-        sudo mv kubectl /usr/local/bin/kubectl
+        mv kubectl /usr/local/bin/kubectl
       args:
        executable: /bin/bash
+
 
 
 
