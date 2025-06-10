@@ -60,7 +60,7 @@
         chmod +x kubectl
         sudo mv kubectl /usr/local/bin/kubectl
       args:
-      executable: /bin/bash
+       executable: /bin/bash
 
 
 
