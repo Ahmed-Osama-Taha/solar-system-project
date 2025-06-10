@@ -54,23 +54,6 @@
         groups: docker
         append: yes
 
-    - name: Download stable kubectl version info
-      shell: curl -s https://dl.k8s.io/release/stable.txt > /tmp/k8s_version
-      args:
-       executable: /bin/bash
-
-    - name: Install kubectl using downloaded version
-      shell: |
-        VERSION=$(cat /tmp/k8s_version)
-        curl -LO https://dl.k8s.io/release/${VERSION}/bin/linux/amd64/kubectl
-        chmod +x kubectl
-        mv kubectl /usr/local/bin/kubectl
-      args:
-       executable: /bin/bash
-
-
-
-
 
     - name: Install Helm
       shell: |
