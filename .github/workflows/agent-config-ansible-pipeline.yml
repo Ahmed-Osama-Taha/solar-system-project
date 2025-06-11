@@ -1,11 +1,7 @@
 
 name: Pushing Configuration to self-hosted agent Ansible Pipeline
 
-on:
-    push: 
-        branches:
-            - main
-        
+on: [workflow_dispatch]
 
 jobs:
     push-ansible-config:
