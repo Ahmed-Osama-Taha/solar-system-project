@@ -1,26 +1,24 @@
 name: Solar System Workflow
 
-on: [workflow_dispatch]
-    
+on: 
+  push:
+    branches:
+      - main
+      
 jobs:
     unit-testing:
         name: Unit Testing
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
         - name: Checkout Repository
           uses: actions/checkout@v4
 
-        - name: Setup NodeJS Version
-          uses: actions/setup-node@v3
-          with:
-            node-version: 20
-    
-        - name: Install Dependencies
-          run: npm install
-    
         - name: Unit Testing
           run: npm test
           
+        - name: Code Coverage
+          run: npm run coverage
+             
         - name: Archive Test Result
           uses: actions/upload-artifact@v3
           with:
