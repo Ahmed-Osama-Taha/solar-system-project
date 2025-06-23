@@ -5,7 +5,7 @@ on:
     branches:
       - main
       
-jobs:
+jobs:  
     unit-testing:
         name: Unit Testing
         runs-on: self-hosted
@@ -17,6 +17,7 @@ jobs:
           run: |
             npm install
             npm test
+            echo 'test'
           
         - name: Code Coverage
           run: npm run coverage
