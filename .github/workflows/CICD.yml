@@ -5,8 +5,7 @@ on:
     branches:
       - main
 
-env:
-  MONGO_URI: ${{ secrets.MONGO_URI }}
+
 
 jobs:  
     unit-testing:
@@ -17,6 +16,8 @@ jobs:
           uses: actions/checkout@v4
 
         - name: Unit Testing
+          env:
+            MONGO_URI: ${{ secrets.MONGO_URI }}
           run: |
             npm install
             npm test
