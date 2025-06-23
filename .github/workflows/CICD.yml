@@ -18,6 +18,8 @@ jobs:
         - name: Unit Testing
           env:
             MONGO_URI: ${{ secrets.MONGO_URI }}
+            MONGO_USERNAME: ${{ secrets.MONGO_USERNAME }}
+            MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
           run: |
             npm install
             npm test
