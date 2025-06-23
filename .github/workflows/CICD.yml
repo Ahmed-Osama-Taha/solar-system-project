@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - main
-      
+
+env:
+  MONGO_URI: ${{ secrets.MONGO_URI }}
+
 jobs:  
     unit-testing:
         name: Unit Testing
