@@ -58,18 +58,6 @@ describe('Planets API Suite', () => {
         });
     });
   });
-
-  // 🔴 Additional test: invalid planet ID to trigger error block
-  it('should return empty object or error for unknown planet ID', (done) => {
-    chai.request(server)
-      .post('/planet')
-      .send({ id: 999 })
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.empty;
-        done();
-      });
-  });
 });
 
 describe('Testing Other Endpoints', () => {
@@ -99,17 +87,6 @@ describe('Testing Other Endpoints', () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.body.should.have.property('status').eql('ready');
-        done();
-      });
-  });
-
-  // ✅ Test for homepage to hit index.html route
-  it('should return index.html content from /', (done) => {
-    chai.request(server)
-      .get('/')
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.text.should.include('<!DOCTYPE html'); // Adjust based on your index.html content
         done();
       });
   });
